@@ -1,0 +1,12 @@
+______________________1_______________________________________________
+db.Food.find({borough:"Bronx"})
+
+______________________2_______________________________________________
+
+db.Food.find({$and:[{"grades.score":{$gt:80}},{"grades.score":{$lt:100}}]})
+
+______________________3_______________________________________________
+
+db.Food.find({$and : [ {"cuisine":{$ne:"American "}} ,{$and : [ {"grades.score":{$gt:70}}, {"address.coord.0":{$lt:-65.754168}}] }  ] })
+
+db.Food.find({$and : [ {"cuisine":{$ne:"American "}} , {"grades.score":{$gt:70}} , {"address.coord.0":{$lt:-65.754168}}]})
