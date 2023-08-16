@@ -1,12 +1,18 @@
-______________________1_______________________________________________
+1. write a MongoDB query to display all the restaurant which is  in borough Bronx. 
+2. write a MongoDB query to find the restaurants that achieved a score, more than 80 but less than 100
+3. Write MongoDB query to find the restaurants that do not prepare any cuisine of "American" and their grade score more than 70 and latitude less than -65.754168.
+
+________________________________________1_______________________________________________
 db.Food.find({borough:"Bronx"})
 
-______________________2_______________________________________________
+________________________________________2_______________________________________________
 
 db.Food.find({$and:[{"grades.score":{$gt:80}},{"grades.score":{$lt:100}}]})
 
-______________________3_______________________________________________
+________________________________________3_______________________________________________
 
 db.Food.find({$and : [ {"cuisine":{$ne:"American "}} ,{$and : [ {"grades.score":{$gt:70}}, {"address.coord.0":{$lt:-65.754168}}] }  ] })
+
+_______________________________________or3_______________________________________________
 
 db.Food.find({$and : [ {"cuisine":{$ne:"American "}} , {"grades.score":{$gt:70}} , {"address.coord.0":{$lt:-65.754168}}]})

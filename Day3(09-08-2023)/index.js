@@ -1,3 +1,6 @@
+// ___________________________validation for name and age________________________________________________________________
+// name and age should not be null ,name should contain only letters and age should contain only numbers
+
 const express = require('express');
 let app= express();
 const bodyParser=require('body-parser');
@@ -18,9 +21,7 @@ app.post('/index', function(req, res){
         }
         res.status(200).send("valid")       
     }
-    res.status(400).send('Invalid')
-    
-    
+    res.status(400).send('Invalid')     
 })
 app.listen(8080,function(){
     console.log('listening on');
