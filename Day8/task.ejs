@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+<body align="center">
+    <!--  1.create an array of 5 objects in ejs file which has properties like name and salary and then using ejs file print all the names in uppercase and display the name and salary in form of a html table-->
+    <h1 >Display array of object in table format</h1>
+    <table border="1px solid black" align="center">
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+        </tr>
+        <% ArrObj.forEach((val)=>{%>
+            <tr>
+                <td><%= val.Name.toUpperCase() %></td>
+                <td><%= val.Salary %></td>
+            </tr>
+        
+        <%})%>
+    </table>
+
+    <!-- 2.create an array in javascript file and print the sum of all elements of that array in ejs template-->
+    <h1 >Sum of Array</h1>
+    <p >Sum of the array [<%=Add%>] is <% let sum=Add.reduce((acc,val)=>acc+val) %><%=sum %></p>
+    
+    <!-- 3.Create a route in express that process which day of the week it is through Date class and then sound this result to the ejs file with either "it is a weekend." or "its not a weekend" depending on the day  -->
+    <h1>WeekEnd Or WeekDay</h1>
+    <% const date = new Date(D) %>
+    <p ><%= (date.getDay() ===0 || date.getDay() ===6)?"WeekEnd":"WeekDay"%></p>
+    
+</body>
+</html>
