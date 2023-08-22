@@ -1,0 +1,17 @@
+<h1>TODO LIST</h1>
+<form method="post" action="/">
+    <input type="text" name="Data" placeholder="add item..." />
+    <button type="submit" name="Add">ADD</button>
+</form>
+<div class="show">
+    <%for(let val in data){%>
+        <div class="Task">
+            <h6><%=data[val].Data%></h6>
+            
+            <button type="button" value="Delete" name="Delete"><a href="/delete/<%=data[val]._id%>">Delete</a></button>
+            <button type="button" value="Edit" name="Edit"><a href="/edit/<%=data[val]._id%>/<%=data[val].Data%>">Edit</a></button>
+            
+        </div> 
+    <%}%>
+</div>
+
