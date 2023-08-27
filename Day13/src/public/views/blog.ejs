@@ -1,0 +1,37 @@
+<h1>BLOGS</h1>
+<%data.map((item,index)=>{%>
+    <h3 style="font-size: 45px; color:rgb(109, 27, 27); font-weight: bolder;margin:0%;"><%=item.title%></h3>
+    <p style="font-size: 20px;  font-weight: bolder;"><%=item.content%></p>
+    <img src="<%=item.image%>" style="width: 1000px; height:500px; "><br>
+    <p style="font-size: 20px;  font-weight: bolder;">Write comments:</p>
+    <%if(id){%>
+        
+        <form action="/comment" method="post">
+            <textarea cols="25" rows="5" placeholder="Enter your comments" name="textarea1"></textarea><br>
+            <input type="submit" value="Comment" name="comment">
+            <input type="hidden" value="<%=id%>" name="id">
+            <input type="hidden" value="<%=index + 1%>" name="length">
+
+        </form>
+        <%}else{%>
+        <form action="/login" method="post">
+            <textarea cols="25" rows="5" placeholder="write here for Login" disabled="true" name="textarea"></textarea><br>
+            <input type="submit" value="Login" name="login">
+        </form>
+        <%}%>
+        <%if(comments){%>
+            <%comments.map((item)=>{%>
+                <%if(parseInt(item.blog_no)===index+1){%>
+                    <p>users:<%=item.id%></p>
+                    <p>comments:<%=item.comments%></p>
+                <%}%>
+            <%})%>
+        <%}%>
+        
+    
+    <br><br>
+<%})%>
+<h1>For Admin Login.Click Here</h1>
+<form method="post" action="/admin">
+    <input type="submit" value="Admin" />
+</form>
